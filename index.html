@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cốc cốc 💗</title>
+<meta property="og:title" content="Cốc cốc 💗">
+<meta property="og:description" content="Em T mở cửa ra xem a có điều muốn hỏi nè...">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe4ee; --bg2:#ffd0e3; --card:#fff8fb;
+  --pink:#ff6fa5; --pink-d:#e0487f; --ink:#7a2a4a; --soft:#ffb3d1;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{
+  font-family:"Baloo 2","Nunito","Segoe UI",system-ui,sans-serif;
+  color:var(--ink);
+  background:radial-gradient(circle at 20% 15%,var(--bg1),var(--bg2) 70%);
+  overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+#hearts,#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#hearts{z-index:0}
+#fx{z-index:5}
+.heart{position:absolute;bottom:-60px;opacity:.0;animation:rise linear infinite;will-change:transform,opacity}
+@keyframes rise{
+  0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}
+  10%{opacity:.75}
+  90%{opacity:.6}
+  100%{transform:translateY(-115vh) translateX(var(--dx)) rotate(var(--rot));opacity:0}
+}
+main{
+  position:relative;z-index:2;min-height:100%;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.card{
+  width:min(92vw,440px);text-align:center;
+  background:var(--card);border-radius:36px;padding:34px 26px 30px;
+  box-shadow:0 14px 0 -4px #ffc2da,0 24px 50px rgba(224,72,127,.28);
+  border:3px solid #fff;
+}
+.big{font-size:64px;line-height:1;display:inline-block;animation:beat 1.2s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+h1{
+  font-size:clamp(26px,7vw,34px);line-height:1.25;font-weight:800;margin:14px 0 6px;
+  color:var(--pink-d);
+}
+.sub{font-size:17px;font-weight:500;opacity:.8;min-height:26px}
+.btns{
+  margin-top:26px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
+  min-height:64px;
+}
+button{
+  font:inherit;font-weight:800;font-size:19px;border:0;cursor:pointer;
+  border-radius:999px;padding:13px 30px;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+#yes{
+  background:linear-gradient(180deg,#ff8fb9,var(--pink));color:#fff;
+  box-shadow:0 6px 0 var(--pink-d),0 12px 20px rgba(224,72,127,.35);
+  transform:scale(var(--s,1));z-index:3;
+}
+#yes:hover{transform:scale(calc(var(--s,1) * 1.06))}
+#yes:active{transform:translateY(4px) scale(var(--s,1));box-shadow:0 2px 0 var(--pink-d)}
+#no{
+  background:#ffe9f2;color:var(--ink);border:2px solid var(--soft);
+  box-shadow:0 5px 0 var(--soft);
+  transition:left .28s cubic-bezier(.3,1.6,.5,1),top .28s cubic-bezier(.3,1.6,.5,1);
+}
+#no.run{position:fixed;z-index:4}
+#win{
+  position:fixed;inset:0;z-index:10;display:none;
+  align-items:center;justify-content:center;padding:20px;
+  background:radial-gradient(circle at 50% 30%,#fff0f6,#ffc4dc 80%);
+}
+#win.show{display:flex;animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+#win .card{position:relative;z-index:11}
+.when{
+  display:inline-block;margin-top:16px;padding:10px 20px;border-radius:999px;
+  background:#ffe0ec;font-weight:700;font-size:18px;color:var(--pink-d);
+}
+.note{margin-top:18px;font-size:16px;opacity:.75}
+.hidden{display:none!important}
+#invite.enter .card{animation:pop .55s cubic-bezier(.3,1.5,.5,1)}
+#intro .card{padding:38px 26px 34px}
+#intro h1{font-size:clamp(24px,6.5vw,30px)}
+.env{
+  margin-top:24px;background:linear-gradient(180deg,#ff8fb9,var(--pink));color:#fff;
+  box-shadow:0 6px 0 var(--pink-d),0 12px 20px rgba(224,72,127,.35);
+  animation:wiggle 2s ease-in-out infinite;
+}
+.env:active{transform:translateY(4px);box-shadow:0 2px 0 var(--pink-d)}
+@keyframes wiggle{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-4deg)}82%{transform:rotate(4deg)}88%{transform:rotate(-3deg)}94%{transform:rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){
+  .env,#invite.enter .card{animation:none}
+  .big,.heart{animation:none}.heart{opacity:.5;bottom:auto}
+  #no{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+
+<main id="intro">
+  <section class="card">
+    <div class="big" aria-hidden="true">💌</div>
+    <h1>Anh có một lời mời, em yêu bấm vào để xem nhá</h1>
+    <p class="sub">Một điều nhỏ xíuuuu dành riêng cho em thôi 🤍</p>
+    <button class="env" id="open" type="button">Mở cửa 💌</button>
+  </section>
+</main>
+
+<main id="invite" class="hidden">
+  <section class="card">
+    <div class="big" aria-hidden="true">💖</div>
+    <h1>Tối T7 đi xem pháo hoa với a yêu của e nhó?</h1>
+    <p class="sub" id="sub">Bấm nút nào cũng được... nhưng chỉ một nút bấm được thôi 🥺</p>
+    <div class="btns" id="btns">
+      <button id="yes" type="button">Đồng ý 💖</button>
+      <button id="no" type="button">Từ chối 💔</button>
+    </div>
+  </section>
+</main>
+
+<div id="win" role="dialog" aria-live="polite" aria-label="Thành công">
+  <section class="card">
+    <div class="big" aria-hidden="true">🎆</div>
+    <h1>Yeee! See yah 💗</h1>
+    <p class="sub">Yarshhhh, mừi điễm cho em T 🥰</p>
+    <div class="when">🎇 Tối thứ 7 · đi xem pháo hoa với a</div>
+    <p class="note">Iu iem bé nhất 🤍</p>
+  </section>
+</div>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+  /* ---------- Trái tim bay nền ---------- */
+  var box = document.getElementById('hearts');
+  var set = ['💗','💖','💕','🩷','💓','🌸'];
+  for (var i = 0; i < 22; i++){
+    var h = document.createElement('span');
+    h.className = 'heart';
+    h.textContent = set[i % set.length];
+    h.style.left = (Math.random()*100) + 'vw';
+    h.style.fontSize = (14 + Math.random()*26) + 'px';
+    h.style.animationDuration = (9 + Math.random()*10) + 's';
+    h.style.animationDelay = (-Math.random()*18) + 's';
+    h.style.setProperty('--dx', (Math.random()*120-60) + 'px');
+    h.style.setProperty('--rot', (Math.random()*80-40) + 'deg');
+    box.appendChild(h);
+  }
+
+  /* ---------- Trang mở lời ---------- */
+  var intro = document.getElementById('intro');
+  var invite = document.getElementById('invite');
+  document.getElementById('open').addEventListener('click', function(){
+    intro.classList.add('hidden');
+    invite.classList.remove('hidden');
+    invite.classList.add('enter');
+    yes.focus({preventScroll:true});
+  });
+
+  /* ---------- Nút Từ chối tự né ---------- */
+  var yes = document.getElementById('yes');
+  var no  = document.getElementById('no');
+  var sub = document.getElementById('sub');
+  var dodges = 0;
+  var lines = [
+    'Ơ kìa, nút này trơn quá 😳',
+    'Bấm hụt rồi, thử lại đi 😜',
+    'Ơ, nút kia mới đúng đó 👉💖',
+    'Iem bé đừng làm a buồn 🥺',
+    'Em T hong đồng ý là tôi dỗi 😳',
+    'Thôi mà, đi với a đi, nha nha 💞',
+    'Nút Đồng ý to ra rồi kìa, bấm đi 😚'
+  ];
+
+  function dodge(e){
+    if (e && e.cancelable) e.preventDefault();
+    var pad = 12;
+    var w = no.offsetWidth, h = no.offsetHeight;
+    var maxX = window.innerWidth - w - pad;
+    var maxY = window.innerHeight - h - pad;
+    var yr = yes.getBoundingClientRect();
+    var x, y, tries = 0;
+    do {
+      x = pad + Math.random() * Math.max(0, maxX - pad);
+      y = pad + Math.random() * Math.max(0, maxY - pad);
+      tries++;
+    } while (tries < 30 &&
+      x < yr.right + 20 && x + w > yr.left - 20 &&
+      y < yr.bottom + 20 && y + h > yr.top - 20);
+    if (!no.classList.contains('run')){
+      var r = no.getBoundingClientRect();
+      no.style.left = r.left + 'px';
+      no.style.top = r.top + 'px';
+      no.classList.add('run');
+      void no.offsetWidth;
+    }
+    no.style.left = x + 'px';
+    no.style.top = y + 'px';
+    dodges++;
+    sub.textContent = lines[Math.min(dodges - 1, lines.length - 1)];
+    yes.style.setProperty('--s', Math.min(1 + dodges * 0.07, 1.5));
+  }
+  ['pointerenter','pointerdown','touchstart','click','focus'].forEach(function(ev){
+    no.addEventListener(ev, dodge, {passive:false});
+  });
+  window.addEventListener('resize', function(){
+    if (no.classList.contains('run')) dodge();
+  });
+
+  /* ---------- Màn hình thành công + pháo hoa ---------- */
+  var cv = document.getElementById('fx');
+  var ctx = cv.getContext('2d');
+  var parts = [], raf = null;
+  function fit(){
+    var d = window.devicePixelRatio || 1;
+    cv.width = innerWidth * d; cv.height = innerHeight * d;
+    ctx.setTransform(d,0,0,d,0,0);
+  }
+  fit(); window.addEventListener('resize', fit);
+
+  function burst(x, y){
+    var cols = ['#ff6fa5','#ff9ec4','#ffd166','#fff','#ff8fb9','#c77dff'];
+    for (var i = 0; i < 46; i++){
+      var a = Math.random() * Math.PI * 2, s = 1.5 + Math.random() * 4.5;
+      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,
+        c:cols[(Math.random()*cols.length)|0],r:2+Math.random()*2.5});
+    }
+  }
+  function loop(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    for (var i = parts.length - 1; i >= 0; i--){
+      var p = parts[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.05; p.vx *= 0.985; p.life -= 0.012;
+      if (p.life <= 0){ parts.splice(i,1); continue; }
+      ctx.globalAlpha = p.life;
+      ctx.fillStyle = p.c;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(loop);
+  }
+
+  yes.addEventListener('click', function(){
+    document.getElementById('win').classList.add('show');
+    no.style.display = 'none';
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    loop();
+    var n = 0;
+    var t = setInterval(function(){
+      burst(innerWidth * (0.15 + Math.random()*0.7), innerHeight * (0.12 + Math.random()*0.4));
+      if (++n > 40) clearInterval(t);
+    }, 380);
+  });
+})();
+</script>
+</body>
+</html>
