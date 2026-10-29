@@ -2,141 +2,152 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cốc cốc 💗</title>
-<meta property="og:title" content="Cốc cốc 💗">
-<meta property="og:description" content="Em T mở cửa ra xem a có điều muốn hỏi nè...">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💗</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cốc cốc 🌿</title>
+<meta property="og:title" content="Cốc cốc 🌿">
+<meta property="og:description" content="Em T mở ra xem anh có điều muốn hỏi nè...">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛰️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg1:#ffe4ee; --bg2:#ffd0e3; --card:#fff8fb;
-  --pink:#ff6fa5; --pink-d:#e0487f; --ink:#7a2a4a; --soft:#ffb3d1;
+  --sky1:#fde7c8; --sky2:#cfe8e0; --card:#fffdf6; --ink:#1f3d31;
+  --green:#2f7a55; --green-d:#1f5a3d; --leaf:#a9d18e; --sun:#ffb347;
+  --m1:#9fc9b4; --m2:#5fa282; --m3:#2f6b4f; --line:#cfe3d3;
+  --shadow:rgba(31,61,49,.25);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sky1:#3a3a52; --sky2:#14302a; --card:#1b2b25; --ink:#e6f3ea;
+    --green:#4fb583; --green-d:#2f8a60; --line:#33503f; --shadow:rgba(0,0,0,.5);
+    --m1:#2b5a47; --m2:#1f4636; --m3:#14301f;
+  }
 }
 *{box-sizing:border-box;margin:0}
 html,body{height:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{
-  font-family:"Baloo 2","Nunito","Segoe UI",system-ui,sans-serif;
+  font-family:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
   color:var(--ink);
-  background:radial-gradient(circle at 20% 15%,var(--bg1),var(--bg2) 70%);
-  overflow:hidden;
-  -webkit-tap-highlight-color:transparent;
-  touch-action:manipulation;
+  background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 70%);
+  overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation;
 }
-#hearts,#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
-#hearts{z-index:0}
+#sky,#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#sky{z-index:0;overflow:hidden}
 #fx{z-index:5}
-.heart{position:absolute;bottom:-60px;opacity:.0;animation:rise linear infinite;will-change:transform,opacity}
-@keyframes rise{
-  0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}
-  10%{opacity:.75}
-  90%{opacity:.6}
-  100%{transform:translateY(-115vh) translateX(var(--dx)) rotate(var(--rot));opacity:0}
+.sun{position:absolute;right:12vw;top:9vh;width:84px;height:84px;border-radius:50%;
+  background:var(--sun);box-shadow:0 0 0 18px rgba(255,179,71,.22),0 0 0 40px rgba(255,179,71,.12)}
+.cloud{position:absolute;left:-200px;height:34px;width:120px;border-radius:40px;
+  background:rgba(255,255,255,.75);animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
+.cloud::before{width:54px;height:54px;left:18px;top:-24px}
+.cloud::after{width:38px;height:38px;left:62px;top:-14px}
+@keyframes drift{to{transform:translateX(calc(100vw + 400px))}}
+.ridge{position:absolute;left:0;bottom:0;width:100%;height:46vh;min-height:220px}
+.leaf{position:absolute;top:-40px;opacity:0;animation:fall linear infinite;will-change:transform,opacity}
+@keyframes fall{
+  0%{transform:translate(0,0) rotate(0);opacity:0}
+  10%{opacity:.85}
+  90%{opacity:.7}
+  100%{transform:translate(var(--dx),115vh) rotate(var(--rot));opacity:0}
 }
-main{
-  position:relative;z-index:2;min-height:100%;
-  display:flex;align-items:center;justify-content:center;padding:20px;
-}
+main{position:relative;z-index:2;min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px}
 .card{
-  width:min(92vw,440px);text-align:center;
-  background:var(--card);border-radius:36px;padding:34px 26px 30px;
-  box-shadow:0 14px 0 -4px #ffc2da,0 24px 50px rgba(224,72,127,.28);
-  border:3px solid #fff;
+  width:min(92vw,440px);text-align:center;background:var(--card);
+  border-radius:14px;padding:34px 26px 30px;position:relative;
+  border:2px dashed var(--line);
+  box-shadow:0 18px 40px var(--shadow);
 }
-.big{font-size:64px;line-height:1;display:inline-block;animation:beat 1.2s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
-h1{
-  font-size:clamp(26px,7vw,34px);line-height:1.25;font-weight:800;margin:14px 0 6px;
-  color:var(--pink-d);
+.card::before,.card::after{
+  content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;
+  background:var(--sky2);border:2px dashed var(--line);margin-top:-13px;
 }
-.sub{font-size:17px;font-weight:500;opacity:.8;min-height:26px}
-.btns{
-  margin-top:26px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
-  min-height:64px;
-}
+.card::before{left:-14px;clip-path:inset(0 0 0 50%)}
+.card::after{right:-14px;clip-path:inset(0 50% 0 0)}
+.big{font-size:60px;line-height:1;display:inline-block;animation:sway 3.2s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+h1{font-size:clamp(24px,6.6vw,31px);line-height:1.28;font-weight:800;margin:14px 0 8px;color:var(--green-d)}
+.sub{font-size:16px;font-weight:500;opacity:.85;min-height:26px;line-height:1.5}
+.btns{margin-top:26px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:64px}
 button{
-  font:inherit;font-weight:800;font-size:19px;border:0;cursor:pointer;
-  border-radius:999px;padding:13px 30px;
+  font:inherit;font-weight:700;font-size:18px;border:0;cursor:pointer;
+  border-radius:12px;padding:13px 28px;
   transition:transform .15s ease,box-shadow .15s ease;
 }
 button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-#yes{
-  background:linear-gradient(180deg,#ff8fb9,var(--pink));color:#fff;
-  box-shadow:0 6px 0 var(--pink-d),0 12px 20px rgba(224,72,127,.35);
-  transform:scale(var(--s,1));z-index:3;
+#yes,.env{
+  background:var(--green);color:#fff;
+  box-shadow:0 6px 0 var(--green-d),0 12px 20px var(--shadow);
 }
+#yes{transform:scale(var(--s,1));z-index:3}
 #yes:hover{transform:scale(calc(var(--s,1) * 1.06))}
-#yes:active{transform:translateY(4px) scale(var(--s,1));box-shadow:0 2px 0 var(--pink-d)}
+#yes:active{transform:translateY(4px) scale(var(--s,1));box-shadow:0 2px 0 var(--green-d)}
 #no{
-  background:#ffe9f2;color:var(--ink);border:2px solid var(--soft);
-  box-shadow:0 5px 0 var(--soft);
+  background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:0 5px 0 var(--line);
   transition:left .28s cubic-bezier(.3,1.6,.5,1),top .28s cubic-bezier(.3,1.6,.5,1);
 }
-#no.run{position:fixed;z-index:4}
+#no.run{position:fixed;z-index:4;background:var(--card)}
+.env{margin-top:24px;animation:wiggle 2s ease-in-out infinite}
+.env:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-d)}
+@keyframes wiggle{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-3deg)}82%{transform:rotate(3deg)}88%{transform:rotate(-2deg)}94%{transform:rotate(1deg)}}
 #win{
-  position:fixed;inset:0;z-index:10;display:none;
-  align-items:center;justify-content:center;padding:20px;
-  background:radial-gradient(circle at 50% 30%,#fff0f6,#ffc4dc 80%);
+  position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;padding:20px;
+  background:linear-gradient(180deg,var(--sky1),var(--sky2));
 }
 #win.show{display:flex;animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
-@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
-#win .card{position:relative;z-index:11}
-.when{
-  display:inline-block;margin-top:16px;padding:10px 20px;border-radius:999px;
-  background:#ffe0ec;font-weight:700;font-size:18px;color:var(--pink-d);
-}
-.note{margin-top:18px;font-size:16px;opacity:.75}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+#win .card{z-index:11}
+.when{display:inline-block;margin-top:16px;padding:10px 18px;border-radius:10px;
+  background:rgba(47,122,85,.14);font-weight:700;font-size:17px;color:var(--green-d)}
+.note{margin-top:18px;font-size:15px;opacity:.8}
 .hidden{display:none!important}
 #invite.enter .card{animation:pop .55s cubic-bezier(.3,1.5,.5,1)}
-#intro .card{padding:38px 26px 34px}
-#intro h1{font-size:clamp(24px,6.5vw,30px)}
-.env{
-  margin-top:24px;background:linear-gradient(180deg,#ff8fb9,var(--pink));color:#fff;
-  box-shadow:0 6px 0 var(--pink-d),0 12px 20px rgba(224,72,127,.35);
-  animation:wiggle 2s ease-in-out infinite;
-}
-.env:active{transform:translateY(4px);box-shadow:0 2px 0 var(--pink-d)}
-@keyframes wiggle{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-4deg)}82%{transform:rotate(4deg)}88%{transform:rotate(-3deg)}94%{transform:rotate(2deg)}}
 @media (prefers-reduced-motion:reduce){
-  .env,#invite.enter .card{animation:none}
-  .big,.heart{animation:none}.heart{opacity:.5;bottom:auto}
+  .env,#invite.enter .card,.big,.cloud,.leaf{animation:none}
+  .leaf{opacity:.6;top:20%}.cloud{left:10%}
   #no{transition:none}
 }
 </style>
 </head>
 <body>
-<div id="hearts" aria-hidden="true"></div>
+<div id="sky" aria-hidden="true">
+  <div class="sun"></div>
+  <svg class="ridge" viewBox="0 0 800 300" preserveAspectRatio="none">
+    <path fill="var(--m1)" d="M0 180 L120 90 L230 160 L360 60 L500 170 L640 100 L800 190 L800 300 L0 300Z"/>
+    <path fill="var(--m2)" d="M0 220 L90 160 L200 215 L330 130 L470 225 L600 170 L720 220 L800 190 L800 300 L0 300Z"/>
+    <path fill="var(--m3)" d="M0 265 L110 225 L240 262 L380 215 L520 265 L660 232 L800 262 L800 300 L0 300Z"/>
+  </svg>
+</div>
 
 <main id="intro">
   <section class="card">
-    <div class="big" aria-hidden="true">💌</div>
-    <h1>Anh có một lời mời, Leanh xinh iuuu của anh bấm vào để xem nhá</h1>
-    <p class="sub">Một điều nhỏ xíuuuu dành riêng cho em thôi 🤍</p>
-    <button class="env" id="open" type="button">Mở cửa 💌</button>
+    <div class="big" aria-hidden="true">🏞️</div>
+    <h1>Anh có một lời mời, em yêu bấm vào để xem nhá</h1>
+    <p class="sub">Một điều nhỏ xíuuuu dành riêng cho em thôi 🌿</p>
+    <button class="env" id="open" type="button">Mở ra xem 🎫</button>
   </section>
 </main>
 
 <main id="invite" class="hidden">
   <section class="card">
-    <div class="big" aria-hidden="true">💖</div>
-    <h1>Tối T7 đi chơi với a yêu của e nhó?</h1>
+    <div class="big" aria-hidden="true">⛰️</div>
+    <h1>Thứ 7 tuần này đi Ba Vì với anh yêu của em nhó?</h1>
     <p class="sub" id="sub">Bấm nút nào cũng được... nhưng chỉ một nút bấm được thôi 🥺</p>
     <div class="btns" id="btns">
-      <button id="yes" type="button">Đồng ý 💖</button>
-      <button id="no" type="button">Từ chối 💔</button>
+      <button id="yes" type="button">Đồng ý 🌿</button>
+      <button id="no" type="button">Từ chối 🍂</button>
     </div>
   </section>
 </main>
 
 <div id="win" role="dialog" aria-live="polite" aria-label="Thành công">
   <section class="card">
-    <div class="big" aria-hidden="true">🎆</div>
-    <h1>Yeee! See yah 💗</h1>
+    <div class="big" aria-hidden="true">🌄</div>
+    <h1>Yeee! Lên núi thôi 🌿</h1>
     <p class="sub">Yarshhhh, mừi điễm cho em T 🥰</p>
-    <div class="when">🎇 Tối thứ 7 · đi xem pháo hoa với a</div>
-    <p class="note">Iu iem bé nhất 🤍</p>
+    <div class="when">⛰️ Thứ 7 này · 31/10 · đi Ba Vì với anh</div>
+    <p class="note">Nhớ mang áo khoác nha, trên đó mát lắm 🧣</p>
   </section>
 </div>
 
@@ -144,20 +155,29 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
 <script>
 (function(){
-  /* ---------- Trái tim bay nền ---------- */
-  var box = document.getElementById('hearts');
-  var set = ['💗','💖','💕','🩷','💓','🌸'];
-  for (var i = 0; i < 22; i++){
+  /* ---------- Mây + lá rơi nền ---------- */
+  var sky = document.getElementById('sky');
+  for (var c = 0; c < 4; c++){
+    var cl = document.createElement('div');
+    cl.className = 'cloud';
+    cl.style.top = (6 + c * 11) + 'vh';
+    cl.style.transform = 'scale(' + (0.7 + Math.random() * 0.8) + ')';
+    cl.style.animationDuration = (60 + Math.random() * 50) + 's';
+    cl.style.animationDelay = (-Math.random() * 90) + 's';
+    sky.appendChild(cl);
+  }
+  var set = ['🍃','🌿','🍂','🦋','🌼'];
+  for (var i = 0; i < 18; i++){
     var h = document.createElement('span');
-    h.className = 'heart';
+    h.className = 'leaf';
     h.textContent = set[i % set.length];
-    h.style.left = (Math.random()*100) + 'vw';
-    h.style.fontSize = (14 + Math.random()*26) + 'px';
-    h.style.animationDuration = (9 + Math.random()*10) + 's';
-    h.style.animationDelay = (-Math.random()*18) + 's';
-    h.style.setProperty('--dx', (Math.random()*120-60) + 'px');
-    h.style.setProperty('--rot', (Math.random()*80-40) + 'deg');
-    box.appendChild(h);
+    h.style.left = (Math.random() * 100) + 'vw';
+    h.style.fontSize = (14 + Math.random() * 18) + 'px';
+    h.style.animationDuration = (10 + Math.random() * 10) + 's';
+    h.style.animationDelay = (-Math.random() * 18) + 's';
+    h.style.setProperty('--dx', (Math.random() * 160 - 80) + 'px');
+    h.style.setProperty('--rot', (Math.random() * 360 - 180) + 'deg');
+    sky.appendChild(h);
   }
 
   /* ---------- Trang mở lời ---------- */
@@ -178,10 +198,10 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
   var lines = [
     'Ơ kìa, nút này trơn quá 😳',
     'Bấm hụt rồi, thử lại đi 😜',
-    'Ơ, nút kia mới đúng đó 👉💖',
+    'Ơ, nút kia mới đúng đó 👉🌿',
     'Iem bé đừng làm a buồn 🥺',
     'Em T hong đồng ý là tôi dỗi 😳',
-    'Thôi mà, đi với a đi, nha nha 💞',
+    'Thôi mà, lên Ba Vì với a đi, nha nha 💞',
     'Nút Đồng ý to ra rồi kìa, bấm đi 😚'
   ];
 
@@ -220,10 +240,10 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
     if (no.classList.contains('run')) dodge();
   });
 
-  /* ---------- Màn hình thành công + pháo hoa ---------- */
+  /* ---------- Màn hình thành công + lá bay ---------- */
   var cv = document.getElementById('fx');
   var ctx = cv.getContext('2d');
-  var parts = [], raf = null;
+  var parts = [];
   function fit(){
     var d = window.devicePixelRatio || 1;
     cv.width = innerWidth * d; cv.height = innerHeight * d;
@@ -232,25 +252,27 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
   fit(); window.addEventListener('resize', fit);
 
   function burst(x, y){
-    var cols = ['#ff6fa5','#ff9ec4','#ffd166','#fff','#ff8fb9','#c77dff'];
-    for (var i = 0; i < 46; i++){
-      var a = Math.random() * Math.PI * 2, s = 1.5 + Math.random() * 4.5;
-      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,
-        c:cols[(Math.random()*cols.length)|0],r:2+Math.random()*2.5});
+    var cols = ['#2f7a55','#a9d18e','#ffb347','#fffdf6','#5fa282','#f08a5d'];
+    for (var i = 0; i < 40; i++){
+      var a = Math.random() * Math.PI * 2, s = 1.5 + Math.random() * 4;
+      parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s - 1.5,life:1,rot:Math.random()*6,
+        c:cols[(Math.random()*cols.length)|0],r:4+Math.random()*4});
     }
   }
   function loop(){
     ctx.clearRect(0,0,innerWidth,innerHeight);
     for (var i = parts.length - 1; i >= 0; i--){
       var p = parts[i];
-      p.x += p.vx; p.y += p.vy; p.vy += 0.05; p.vx *= 0.985; p.life -= 0.012;
+      p.x += p.vx; p.y += p.vy; p.vy += 0.06; p.vx *= 0.985; p.rot += 0.08; p.life -= 0.01;
       if (p.life <= 0){ parts.splice(i,1); continue; }
       ctx.globalAlpha = p.life;
       ctx.fillStyle = p.c;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.beginPath(); ctx.ellipse(0,0,p.r,p.r*0.5,0,0,6.283); ctx.fill();
+      ctx.restore();
     }
     ctx.globalAlpha = 1;
-    raf = requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
   }
 
   yes.addEventListener('click', function(){
